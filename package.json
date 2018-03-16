@@ -1,6 +1,6 @@
 {
   "name": "next-eslint",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "index.js",
   "license": "MIT",
   "repository": "sayuti-daniel/next-eslint",
