@@ -1,5 +1,3 @@
-const eslintLoaderConfig = require("./eslintLoaderConfig");
-
 module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
@@ -11,10 +9,10 @@ module.exports = (nextConfig = {}) => {
 
       if (!options.isServer) {
         const { eslintLoaderOptions } = nextConfig;
-        options.defaultLoaders.eslint = eslintLoaderConfig(config, {
-          dir: options.dir,
-          eslintLoaderOptions
-        });
+        options.defaultLoaders.eslint = {
+          loader: "eslint-loader",
+          options: Object.assign({ failOnError: true }, eslintLoaderOptions)
+        };
 
         config.module.rules.push({
           enforce: "pre",
